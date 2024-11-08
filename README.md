@@ -8,19 +8,19 @@ python -m playpen_pipeline --model_args pretrained=model_name
 ```
 
 Tasks Currently supported:
-  - 'glue_diagnostics' ((Included in GLUE and SuperGLUE [[Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'llmbar_natural' ([Zeng et al. ICLR 2024](https://arxiv.org/pdf/2310.07641)
-  - 'mmlu' ([Hendrycks et al., 2021](https://arxiv.org/abs/2009.03300))
-  - 'social_iqa'([Sap et al., 2019](https://aclanthology.org/D19-1454/))
-  - 'boolq' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'cb' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'copa' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'multirc' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'record' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'rte' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'wic' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'wsc' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
-  - 'bbh' (BigBench-Hard,CoT prompting [Suzgun et al., 2022](https://arxiv.org/abs/2210.09261))
+  - **'glue_diagnostics'** ((Included in GLUE and SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - **'llmbar_natural'** ([Zeng et al. ICLR 2024](https://arxiv.org/pdf/2310.07641))
+  - **'mmlu'** ([Hendrycks et al., 2021](https://arxiv.org/abs/2009.03300))
+  - **'social_iqa'**([Sap et al., 2019](https://aclanthology.org/D19-1454/))
+  - **'boolq'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'cb'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'copa'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'multirc'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'record'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'rte'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'wic'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'wsc'** (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537))
+  - **'bbh'** (BigBench-Hard,CoT prompting [Suzgun et al., 2022](https://arxiv.org/abs/2210.09261))
 
 
 ---
