@@ -1,3 +1,29 @@
+# Playpen Evaluation (LM Evaluation Harness - based)
+In the folder ```playpen_pipeline``` it is possible to find both the configuration file for the pipeline as well as the code to run it.
+The configuration file contains the settings for running the harness as well as the list of tasks we wish to evaluate our models on.
+
+In order to run the evaluation on the Playpen datasets with an Huggingface model just run the command
+```bash
+python -m playpen_pipeline --model_args pretrained=model_name
+```
+
+Tasks Currently supported:
+  - 'glue_diagnostics' ((Included in GLUE and SuperGLUE [[Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'llmbar_natural' ([Zeng et al. ICLR 2024](https://arxiv.org/pdf/2310.07641)
+  - 'mmlu' ([Hendrycks et al., 2021](https://arxiv.org/abs/2009.03300))
+  - 'social_iqa'([Sap et al., 2019](https://aclanthology.org/D19-1454/))
+  - 'boolq' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'cb' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'copa' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'multirc' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'record' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'rte' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'wic' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'wsc' (Included in SuperGLUE [Wang et al., 2019](https://arxiv.org/abs/1905.00537)
+  - 'bbh' (BigBench-Hard,CoT prompting [Suzgun et al., 2022](https://arxiv.org/abs/2210.09261))
+
+
+---
 # Language Model Evaluation Harness
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10256836.svg)](https://doi.org/10.5281/zenodo.10256836)
