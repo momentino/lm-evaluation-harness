@@ -6,7 +6,7 @@ import lm_eval
 from datetime import datetime
 from pathlib import Path
 from typing import List
-from playpen_eval.utils import load_yaml_config
+from playpen_pipeline.utils import load_yaml_config
 from lm_eval.tasks import TaskManager
 
 pipeline_logger = logging.getLogger("pipeline-logger")
