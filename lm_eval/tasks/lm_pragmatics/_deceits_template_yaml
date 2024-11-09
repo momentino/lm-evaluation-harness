@@ -1,0 +1,4 @@
+dataset_path: clembench-playpen/lm-pragmatics
+dataset_name: deceits
+tag: lm_pragmatics_deceits
+include: _general_template_yaml

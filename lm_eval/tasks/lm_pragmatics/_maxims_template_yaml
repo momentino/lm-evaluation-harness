@@ -1,0 +1,4 @@
+dataset_path: clembench-playpen/lm-pragmatics
+dataset_name: maxims
+tag: lm_pragmatics_maxims
+include: _general_template_yaml

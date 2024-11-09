@@ -1,0 +1,4 @@
+dataset_path: clembench-playpen/lm-pragmatics
+dataset_name: irony
+tag: lm_pragmatics_irony
+include: _general_template_yaml
