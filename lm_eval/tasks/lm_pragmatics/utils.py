@@ -8,4 +8,4 @@ def doc_to_choice(doc) -> list:
 def doc_to_target(doc) -> int:
     correct_answer = doc['randomized_true_answer']
     options = ast.literal_eval(doc['randomized_option_order'])
-    return options.index(correct_answer) - 1
+    return options.index(correct_answer)
