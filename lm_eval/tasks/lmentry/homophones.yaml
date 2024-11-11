@@ -3,4 +3,4 @@ task: lmentry_homophones
 include: _lmentry_template_yaml
 output_type: multiple_choice
 doc_to_choice: "{{[answer, distractor]}}"
-doc_to_target: 0
+doc_to_target: "{{answer_index}}"
