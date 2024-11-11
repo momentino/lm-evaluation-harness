@@ -1,3 +1,4 @@
+dataset_path: clembench-playpen/lm-pragmatics
 output_type: multiple_choice
 doc_to_text: "{{prompt}}"
 doc_to_choice: !function utils.doc_to_choice

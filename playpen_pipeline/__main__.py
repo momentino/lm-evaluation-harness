@@ -66,19 +66,20 @@ def run_pipeline(args: argparse.Namespace) -> None:
     pipeline_logger.info(f"Unknown/Not yet implemented tasks: {unk_tasks}")
 
     # Run evaluation for each pending task
-    results = lm_eval.simple_evaluate(
-        model=model,
-        model_args=model_args,
-        tasks=pending_tasks,
-        device=device,
-        log_samples=log_samples,
-    )
-    timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S.%f")
-    output_file_path = Path(os.path.join(output_subfolder,f"playpen_eval_results{timestamp}.json"))
-    output_file_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_file_path, "w") as file:
-        results = json.dumps(str(results))
-        json.dump(results, file)
+    for task in pending_tasks:
+        results = lm_eval.simple_evaluate(
+            model=model,
+            model_args=model_args,
+            tasks=task,
+            device=device,
+            log_samples=log_samples,
+        )
+        timestamp = datetime.now().strftime("%Y-%m-%dT%H-%M-%S.%f")
+        output_file_path = Path(os.path.join(output_subfolder,f"{task}_results{timestamp}.json"))
+        output_file_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_file_path, "w") as file:
+            results = json.dumps(str(results))
+            json.dump(results, file)
 
 if __name__ == "__main__":
     # Set up argument parsing

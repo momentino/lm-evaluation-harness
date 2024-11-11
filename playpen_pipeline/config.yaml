@@ -1,6 +1,7 @@
 tasks:
   - 'glue_diagnostics'
   - 'llmbar_natural'
+  - 'lm_pragmatics'
   - 'mmlu'
   - 'social_iqa'
   - 'boolq'
@@ -11,7 +12,7 @@ tasks:
   - 'rte'
   - 'wic'
   - 'wsc'
-  - 'bbh'
+  #- 'bbh'
 output_path: playpen_results
 model: 'hf' # the backend
 device: 'cuda:0'
