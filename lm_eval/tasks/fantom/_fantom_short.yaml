@@ -7,3 +7,8 @@ task:
   - fantom_short_fact
   - fantom_short_infoaccessibility_binary
   - fantom_short_infoaccessibility_list
+aggregate_metric_list:
+    - metric: acc
+      aggregation: mean
+    - metric: f1
+      aggregation: mean

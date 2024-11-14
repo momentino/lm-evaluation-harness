@@ -298,7 +298,7 @@ Tasks using complex filtering:
 
 When evaluating a language model, it's is not unusual to test across a number of tasks that may not be related to one another in order to assess a variety of capabilities. To this end, it may be combursome to have to list the set of tasks or add a new group name to each yaml of each individual task.
 
-To solve this, we can create a **group** yaml config. This is a config that contains the names of the tasks that should be included in a particular group. The config consists of two main keys: a `group` key which denotes the name of the group (as it would be called from the command line, e.g. `mmlu`) and a `task` key which is where we can list the tasks. The tasks listed in `task` are the task names that have been registered. A good example of a group yaml config can be found at [../lm_eval/tasks/mmlu/default/_mmlu.yaml]. See also the [New Task Guide](./new_task_guide.md) for a more in-depth and tutorial-esque explanation of how to write complex GroupConfigs.
+To solve this, we can create a **group** yaml config. This is a config that contains the names of the tasks that should be included in a particular group. The config consists of two main keys: a `group` key which denotes the name of the group (as it would be called from the command line, e.g. `mmlu`) and a `task` key which is where we can list the tasks. The tasks listed in `task` are the task names that have been registered. A good example of a group yaml config can be found at [../lm_eval/tasks/mmlu/default/_mmlu.yaml]. See also the [New Task Guide](new_task_guide.md) for a more in-depth and tutorial-esque explanation of how to write complex GroupConfigs.
 
 ## Configurations
 

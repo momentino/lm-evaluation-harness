@@ -356,7 +356,7 @@ metadata:
   version: 1.0
 ```
 
-Similar to our `metric_list` for listing out the metrics we want to calculate for a given task, we use an `aggregate_metric_list` field to specify which metric name to aggregate across subtasks, what aggregation function to use, and whether we should micro- or macro- average these metrics. See [./task_guide.md](./task_guide.md) for a full list of related sub-keys.
+Similar to our `metric_list` for listing out the metrics we want to calculate for a given task, we use an `aggregate_metric_list` field to specify which metric name to aggregate across subtasks, what aggregation function to use, and whether we should micro- or macro- average these metrics. See [./task_guide.md](task_guide.md) for a full list of related sub-keys.
 
 **[!Tip]: currently, we predominantly only support the aggregation of group metrics that use `mean` (either micro- or macro- averaged) over their subtasks. If you require even more complex aggregation rules, you may want to perform aggregation offline.**
 

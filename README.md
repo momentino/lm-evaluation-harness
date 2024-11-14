@@ -91,9 +91,9 @@ We also provide a number of optional dependencies for extended functionality. A 
 ## Basic Usage
 ### User Guide
 
-A user guide detailing the full list of supported arguments is provided [here](./docs/interface.md), and on the terminal by calling `lm_eval -h`. Alternatively, you can use `lm-eval` instead of `lm_eval`.
+A user guide detailing the full list of supported arguments is provided [here](docs/interface.md), and on the terminal by calling `lm_eval -h`. Alternatively, you can use `lm-eval` instead of `lm_eval`.
 
-A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --tasks list`. Task descriptions and links to corresponding subfolders are provided [here](./lm_eval/tasks/README.md).
+A list of supported tasks (or groupings of tasks) can be viewed with `lm-eval --tasks list`. Task descriptions and links to corresponding subfolders are provided [here](lm_eval/tasks/README.md).
 
 ### Hugging Face `transformers`
 
@@ -244,7 +244,7 @@ lm_eval --model vllm \
 ```
 To use vllm, do `pip install lm_eval[vllm]`. For a full list of supported vLLM configurations, please reference our [vLLM integration](https://github.com/EleutherAI/lm-evaluation-harness/blob/e74ec966556253fbe3d8ecba9de675c77c075bce/lm_eval/models/vllm_causallms.py) and the vLLM documentation.
 
-vLLM occasionally differs in output from Huggingface. We treat Huggingface as the reference implementation, and provide a [script](./scripts/model_comparator.py) for checking the validity of vllm results against HF.
+vLLM occasionally differs in output from Huggingface. We treat Huggingface as the reference implementation, and provide a [script](scripts/model_comparator.py) for checking the validity of vllm results against HF.
 
 > [!Tip]
 > For fastest performance, we recommend using `--batch_size auto` for vLLM whenever possible, to leverage its continuous batching functionality!
@@ -476,7 +476,7 @@ For more information on the library and how everything fits together, check out 
 
 ### Implementing new tasks
 
-To implement a new task in the eval harness, see [this guide](./docs/new_task_guide.md).
+To implement a new task in the eval harness, see [this guide](docs/new_task_guide.md).
 
 In general, we follow this priority list for addressing concerns about prompting and other eval details:
 1. If there is widespread agreement among people who train LLMs, use the agreed upon procedure.
