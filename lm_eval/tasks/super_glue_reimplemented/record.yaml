@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_record_reimplemented
+  - super_glue
+task: super_glue_record_reimplemented
 dataset_path: super_glue
 dataset_name: record
 output_type: multiple_choice

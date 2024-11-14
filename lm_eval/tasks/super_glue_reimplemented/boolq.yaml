@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_boolq_reimplemented
+  - super_glue_reimplemented
+task: super_glue_boolq_reimplemented
 dataset_path: super_glue
 dataset_name: boolq
 output_type: multiple_choice

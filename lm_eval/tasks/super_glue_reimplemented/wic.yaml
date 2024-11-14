@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_wic_reimplemented
+  - super_glue_reimplemented
+task: super_glue_wic_reimplemented
 dataset_path: super_glue
 dataset_name: wic
 output_type: multiple_choice

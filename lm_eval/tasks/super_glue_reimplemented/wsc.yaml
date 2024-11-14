@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_wsc_reimplemented
+  - super_glue
+task: super_glue_wsc_reimplemented
 dataset_path: super_glue
 dataset_name: wsc.fixed
 output_type: multiple_choice

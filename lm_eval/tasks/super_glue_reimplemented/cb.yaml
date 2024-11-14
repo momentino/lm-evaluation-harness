@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_cb_reimplemented
+  - super_glue
+task: super_glue_cb_reimplemented
 dataset_path: super_glue
 dataset_name: cb
 output_type: multiple_choice

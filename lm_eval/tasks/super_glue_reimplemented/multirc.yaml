@@ -1,6 +1,6 @@
 tag:
-  - superglue
-task: superglue_multirc_reimplemented
+  - super_glue
+task: super_glue_multirc_reimplemented
 dataset_path: super_glue
 dataset_name: multirc
 output_type: multiple_choice
