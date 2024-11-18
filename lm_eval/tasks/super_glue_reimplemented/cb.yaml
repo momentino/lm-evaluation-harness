@@ -1,5 +1,4 @@
-tag:
-  - super_glue
+tag: super_glue_reimplemented
 task: super_glue_cb_reimplemented
 dataset_path: super_glue
 dataset_name: cb
