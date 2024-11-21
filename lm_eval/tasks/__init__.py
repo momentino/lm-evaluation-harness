@@ -225,6 +225,7 @@ class TaskManager:
         if name not in self.task_index:
             raise ValueError
         yaml_path = self._get_yaml_path(name)
+
         if yaml_path == -1:
             return {}
         else:

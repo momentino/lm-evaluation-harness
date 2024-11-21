@@ -5,6 +5,7 @@ dataset_name: multirc
 output_type: multiple_choice
 training_split: train
 validation_split: validation
+num_fewshot: 0
 doc_to_text: "{{paragraph}}\nQuestion: {{question}}\nAnswer:"
 doc_to_target: label
 doc_to_choice: "['''{{answer}}\\nIs the answer correct? yes''', '''{{answer}}\\nIs the answer correct? no''']"

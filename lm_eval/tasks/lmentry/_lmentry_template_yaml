@@ -1,5 +1,6 @@
 dataset_path: clembench-playpen/lmentry
 test_split: test
+num_fewshot: 0
 doc_to_text: "{{input}}"
 metadata:
   version: 0.0.1

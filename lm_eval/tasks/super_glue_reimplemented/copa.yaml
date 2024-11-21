@@ -5,6 +5,7 @@ dataset_name: copa
 output_type: multiple_choice
 training_split: train
 validation_split: validation
+num_fewshot: 0
 doc_to_text: !function utils_copa.doc_to_text
 doc_to_target: !function utils_copa.doc_to_target
 doc_to_choice: !function utils_copa.doc_to_choice

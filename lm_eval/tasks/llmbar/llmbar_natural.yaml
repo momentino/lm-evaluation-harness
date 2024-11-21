@@ -3,6 +3,7 @@ dataset_name: LLMBar
 task: llmbar_natural
 output_type: multiple_choice
 test_split: Natural
+num_fewshot: 0
 doc_to_text: "<|im_start|>system
 You are a helpful assistant in evaluating the quality of the outputs for a given instruction. Your goal is to select the best output for the given instruction.
 <|im_end|>

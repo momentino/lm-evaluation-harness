@@ -5,6 +5,7 @@ dataset_name: rte
 output_type: multiple_choice
 training_split: train
 validation_split: validation
+num_fewshot: 0
 doc_to_text: "{{premise}}\nQuestion: {{hypothesis}} True or False?\nAnswer:"
 doc_to_target: label
 doc_to_choice: ['True', 'False']

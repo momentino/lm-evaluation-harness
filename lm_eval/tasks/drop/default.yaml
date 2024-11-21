@@ -3,6 +3,7 @@ dataset_path: EleutherAI/drop
 output_type: generate_until
 training_split: train
 validation_split: validation
+num_fewshot: 0
 process_docs: !function utils.process_docs
 doc_to_text: "{{passage}} {{question}}"
 doc_to_target: "{{ answer|join(',')}}"
