@@ -1,6 +1,7 @@
 import ast
 import re
 import unicodedata as ud
+from typing import List
 
 
 def clean_answer(answer: str):
@@ -28,7 +29,7 @@ def clean_answer(answer: str):
     return clean
 
 
-def safe_exact(references: list[str], predictions: list[str]):
+def safe_exact(references: List[str], predictions: List[str]):
     if len(references[0]) == 0:
         return 1.0
     if len(predictions[0]) == 0:
@@ -88,7 +89,7 @@ def parse_str_list_score(model, correct, scoring_func):
         )
 
 
-def exact_match(references: list[str], predictions: list[str]):
+def exact_match(references: List[str], predictions: List[str]):
     ref_dict = ast.literal_eval(references[0])
     try:
         assert "{" in predictions[0]
@@ -126,6 +127,6 @@ def aggregate_scores(input):
 
 
 def aggregate_metrics(
-    metrics_scores: list[int], dataset_size: list[int], weight_by_size: bool
+    metrics_scores: List[int], dataset_size: List[int], weight_by_size: bool
 ):
     return metrics_scores[0] - metrics_scores[1]

@@ -169,39 +169,45 @@ class ResponseEvaluator:
 
     def evaluate_verification(self, doc, llm_response):
         id = doc["instance_id"]
-        cur_instance = self.instance.format(id)
+        cur_instance = str(self.instance).format(id)
         problem = self.get_problem(cur_instance, self.domain_pddl)
         ground_truth_response = doc["ground_truth_plan"]
         parsed_llm_response = self.parse_output(problem.actions, llm_response)
         parsed_ground_truth_response = self.parse_output(problem.actions, ground_truth_response)
-        if parsed_llm_response['valid'] == parsed_ground_truth_response['valid']:
-            correct_binary = True
-            if not parsed_llm_response['valid']:
-                # print(sorted(list(parsed_llm_response.keys())), sorted(list(parsed_ground_truth_response.keys())), sorted(list(parsed_llm_response.keys())) == sorted(list(parsed_ground_truth_response.keys())))
-                if sorted(list(parsed_llm_response.keys())) == sorted(
-                        list(parsed_ground_truth_response.keys())):
-                    correct_w_type = True
-                    if 'unmet_goal' in parsed_llm_response:
-                        # if parsed_ground_truth_response['unmet_goal'] == parsed_llm_response['unmet_goal']:
-                        if any([llm_pred in parsed_ground_truth_response['unmet_goal'] for llm_pred in
-                                parsed_llm_response['unmet_goal']]):
-                            correct_w_expl = True
-                    if 'unmet_precondition' in parsed_llm_response:
-                        try:
-                            if parsed_llm_response['unmet_precondition']['action'] == \
-                                    parsed_ground_truth_response['unmet_precondition']['action']:
-                                if any([llm_pred in parsed_ground_truth_response['unmet_precondition'][
-                                    'predicate'] for llm_pred in
-                                        parsed_llm_response['unmet_precondition']['predicate']]):
-                                    correct_w_expl = True
+        correct_binary = False
+        correct_w_type = False
+        correct_w_expl = False
+        try:
+            if parsed_llm_response['valid'] == parsed_ground_truth_response['valid']:
+                correct_binary = True
+                if not parsed_llm_response['valid']:
+                    # print(sorted(list(parsed_llm_response.keys())), sorted(list(parsed_ground_truth_response.keys())), sorted(list(parsed_llm_response.keys())) == sorted(list(parsed_ground_truth_response.keys())))
+                    if sorted(list(parsed_llm_response.keys())) == sorted(
+                            list(parsed_ground_truth_response.keys())):
+                        correct_w_type = True
+                        if 'unmet_goal' in parsed_llm_response:
+                            # if parsed_ground_truth_response['unmet_goal'] == parsed_llm_response['unmet_goal']:
+                            if any([llm_pred in parsed_ground_truth_response['unmet_goal'] for llm_pred in
+                                    parsed_llm_response['unmet_goal']]):
+                                correct_w_expl = True
+                        if 'unmet_precondition' in parsed_llm_response:
+                            try:
+                                if parsed_llm_response['unmet_precondition']['action'] == \
+                                        parsed_ground_truth_response['unmet_precondition']['action']:
+                                    if any([llm_pred in parsed_ground_truth_response['unmet_precondition'][
+                                        'predicate'] for llm_pred in
+                                            parsed_llm_response['unmet_precondition']['predicate']]):
+                                        correct_w_expl = True
 
-                        except KeyError:
-                            print(f"For Instance {id}")
-                            print(parsed_llm_response)
-                            print(parsed_ground_truth_response)
+                            except KeyError:
+                                print(f"For Instance {id}")
+                                print(parsed_llm_response)
+                                print(parsed_ground_truth_response)
                             # raise KeyError
+
             else:
                 correct_w_type = True
                 correct_w_expl = True
-
+        except KeyError:
+            print("Plan verification failed")
         return correct_binary and correct_w_type and correct_w_expl

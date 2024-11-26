@@ -2,6 +2,8 @@ import json
 
 import datasets
 
+from typing import List
+
 
 def load_questionsheet(qsheet: dict, no_context: bool = False):
     subquestions = json.loads(qsheet["questions"])
@@ -28,7 +30,7 @@ def load_questionsheet(qsheet: dict, no_context: bool = False):
     return prompt
 
 
-def format_answers(questionpart_ns: list[str], answers: list[str]):
+def format_answers(questionpart_ns: List[str], answers: List[str]):
     formatted_output = {}
     formatted_answers = {}
     for i, qn in enumerate(questionpart_ns):
@@ -75,7 +77,7 @@ def load_question(
 
 
 def load_all_questions(
-    question_sheets: list[dict],
+    question_sheets: List[dict],
 ):
     prompts = []
     nc_prompts = []

@@ -1,6 +1,6 @@
 group: planbench
 task:
-  #- planbench_blocksworld
+  - planbench_blocksworld
   - planbench_logistics
 aggregate_metric_list:
   - metric: acc

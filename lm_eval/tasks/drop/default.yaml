@@ -13,7 +13,7 @@ should_decontaminate: true
 doc_to_decontamination_query: "{{passage}} {{question}}"
 generation_kwargs:
   until:
-    - "."
+    - "\n" #before: ".". See: https://huggingface.co/blog/open-llm-leaderboard-drop
 metric_list:
   - metric: em
     aggregation: mean
