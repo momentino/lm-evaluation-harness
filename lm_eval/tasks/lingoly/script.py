@@ -90,6 +90,7 @@ def parse_str_list_score(model, correct, scoring_func):
 
 
 def exact_match(references: List[str], predictions: List[str]):
+
     ref_dict = ast.literal_eval(references[0])
     try:
         assert "{" in predictions[0]
@@ -110,6 +111,8 @@ def exact_match(references: List[str], predictions: List[str]):
                 pred_dict[k] = n.group()[:-1]
             else:
                 pred_dict[k] = ""
+    print(" REF DICT ", ref_dict)
+    print(" PRED DICT ", pred_dict)
     pred_dict_full = {
         k: pred_dict[k] if k in pred_dict else "" for k in ref_dict.keys()
     }
