@@ -5,7 +5,7 @@ output_type: generate_until
 test_split: inaccessible
 doc_to_text: "{{input_text}}"
 doc_to_target: "{{correct_answer}}"
-process_results: !function utils.process_results_f1
+process_results: !function utils.process_results_belief_gen
 metric_list:
   - metric: f1
     aggregation: mean

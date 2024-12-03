@@ -1,9 +1,14 @@
 import re
 from collections import Counter
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+
+device = "cuda:0" #TODO Improve
 
 def process_results_belief_choice(doc, response) -> dict:
     model_response = response[0]
     int_to_alphabet = {0: 'a', 1: 'b', 2: 'c', 3: 'd'}
+    model_response = model_response.lower()
     answer = int_to_alphabet[doc['correct_answer']]
     right_guess = model_response.startswith("(" + answer + ")") or model_response.startswith(answer + ")") or model_response.startswith(answer + ".") or model_response.startswith(answer + ":") or model_response.startswith(answer + ",") or "({})".format(answer) in model_response or answer == model_response
     return {'acc': right_guess}
@@ -24,8 +29,10 @@ def process_results_list(doc, response) -> dict:
     return {'acc': not(excluded_aware_character or included_unaware_character)}
 
 def process_results_binary(doc, response) -> dict:
+    mapping = {'yes': 1, 'no': 0, 'no:long': 0, 'error': -1}
+
     model_response = response[0].lower().strip("'").strip('"')
-    result = -1
+
     if " yes," in model_response or " yes " in model_response or model_response.startswith(
             "yes") or " yes." in model_response or " knows " in model_response or model_response.lower().startswith("true"):
         result = 1
@@ -33,9 +40,24 @@ def process_results_binary(doc, response) -> dict:
             "no") or " no." in model_response or " does not know " in model_response or " doesn't know " in model_response or model_response.lower().startswith(
             "false"):
         result = 0
-    match = result == doc_to_target_binary(doc)
+    else:
+        result = -1
+    match = mapping[result] == mapping[doc['correct_answer']]
     return {'exact_match': match}
 
+def process_results_belief_gen(doc, response) -> dict:
+    model_response = response[0]
+    wrong_tom_view = doc['wrong_answer']
+    embedder = SentenceTransformer('sentence-transformers/all-roberta-large-v1')
+    wrong_tom_view_emb = embedder.encode(wrong_tom_view)
+    personx_view_emb = embedder.encode(doc['correct_answer'])
+    model_response_emb = embedder.encode(model_response)
+    similarity_wrong_tom_view = cosine_similarity(model_response_emb.reshape(1, -1), wrong_tom_view_emb.reshape(1, -1))[0][0]
+    similarity_personx_view = cosine_similarity(model_response_emb.reshape(1, -1), personx_view_emb.reshape(1, -1))[0][
+        0]
+
+    correct = similarity_wrong_tom_view >= similarity_personx_view
+    return {'acc':correct}
 
 def process_results_f1(doc, response) -> dict:
     pred, gold = response, doc['correct_answer']
