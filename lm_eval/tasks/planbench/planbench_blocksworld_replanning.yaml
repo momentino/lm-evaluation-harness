@@ -1,4 +1,4 @@
-tag: "planbench_blocksworld_replanning"
+tag: "planbench_blocksworld_tasks"
 task: "planbench_blocksworld_plan_replanning"
 include: "_planbench_template_yaml"
 dataset_name: "blocksworld_replanning"
