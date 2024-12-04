@@ -3,7 +3,8 @@ task:
   - glue_diagnostics_lexical_semantics
   - glue_diagnostics_predicate_argument_structure
   - glue_diagnostics_logic
-  - glue_diagnostics_knowledge
+  - glue_diagnostics_knowledge_world
+  - glue_diagnostics_knowledge_common_sense
 aggregate_metric_list:
     - metric: acc
       aggregation: mean
