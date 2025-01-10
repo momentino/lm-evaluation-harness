@@ -3,8 +3,6 @@ from collections import Counter
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-device = "cuda:0" #TODO Improve
-
 def process_results_belief_choice(doc, response) -> dict:
     model_response = response[0]
     int_to_alphabet = {0: 'a', 1: 'b', 2: 'c', 3: 'd'}
@@ -47,7 +45,7 @@ def process_results_binary(doc, response) -> dict:
 def process_results_belief_gen(doc, response) -> dict:
     model_response = response[0]
     wrong_tom_view = doc['wrong_answer']
-    embedder = SentenceTransformer('sentence-transformers/all-roberta-large-v1')
+    embedder = SentenceTransformer('sentence-transformers/all-roberta-large-v1', config_kwargs={'device_map': 'auto'})
     wrong_tom_view_emb = embedder.encode(wrong_tom_view)
     personx_view_emb = embedder.encode(doc['correct_answer'])
     model_response_emb = embedder.encode(model_response)
