@@ -170,12 +170,12 @@ def process_winogrande(dataset: datasets.Dataset) -> datasets.Dataset:
     return dataset.map(_subprocess)
 
 
-def winogrande_doc_to_text(doc):  # Mirrored from the winogrande task
+def winogrande_doc_to_target(doc):  # Mirrored from the winogrande task
     answer_to_num = {"1": 0, "2": 1}
     return answer_to_num[doc["answer"]]
 
 
-def winogrande_doc_to_target(doc):  # Mirrored from the winogrande task
+def winogrande_doc_to_text(doc):  # Mirrored from the winogrande task
     idx = doc["sentence"].index("_") + 1
     return doc["sentence"][idx:].strip()
 
