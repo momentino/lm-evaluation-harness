@@ -1,4 +1,4 @@
-task: metabench_truthfulqa
+xtask: metabench_truthfulqa
 tag:
   - metabench_truthfulqa_subset
 dataset_path: HCAI/metabench
