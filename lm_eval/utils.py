@@ -22,7 +22,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d:%H:%M:%S",
     level=logging.INFO,
 )
-eval_logger = logging.getLogger("lm-eval")
+eval_logger = logging.getLogger("lm-evaluate")
 
 SPACING = " " * 47
 

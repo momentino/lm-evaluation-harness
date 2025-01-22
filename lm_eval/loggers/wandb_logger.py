@@ -153,7 +153,7 @@ class WandbLogger:
 
             return table
 
-        # log the complete eval result to W&B Table
+        # log the complete evaluate result to W&B Table
         table = make_table(["Tasks"] + columns, "results")
         self.run.log({"evaluation/eval_results": table}, step=self.step)
 

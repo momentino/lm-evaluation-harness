@@ -593,7 +593,7 @@ class HFLM(TemplateLM):
                 except ModuleNotFoundError as exception:
                     raise type(exception)(
                         "Tried to load auto_gptq, but auto-gptq is not installed ",
-                        "please install auto-gptq via pip install lm-eval[gptq] or pip install -e .[gptq]",
+                        "please install auto-gptq via pip install lm-evaluate[gptq] or pip install -e .[gptq]",
                     )
 
                 self._model = AutoGPTQForCausalLM.from_quantized(
@@ -612,7 +612,7 @@ class HFLM(TemplateLM):
                 except ModuleNotFoundError as exception:
                     raise type(exception)(
                         "Tried to load gptqmodel, but gptqmodel is not installed ",
-                        "please install gptqmodel via `pip install gptqmodel --no-build-isolation` or `pip install lm-eval[gptqmodel] --no-build-isolation`",
+                        "please install gptqmodel via `pip install gptqmodel --no-build-isolation` or `pip install lm-evaluate[gptqmodel] --no-build-isolation`",
                     )
 
                 self._model = GPTQModel.from_quantized(

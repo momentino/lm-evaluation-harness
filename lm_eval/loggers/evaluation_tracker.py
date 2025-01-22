@@ -130,8 +130,8 @@ class EvaluationTracker:
         Args:
             output_path (str): Path to save the results. If not provided, the results won't be saved.
             hub_results_org (str): The Hugging Face organization to push the results to. If not provided, the results will be pushed to the owner of the Hugging Face token.
-            hub_repo_name (str): The name of the Hugging Face repository to push the results to. If not provided, the results will be pushed to `lm-eval-results`.
-            details_repo_name (str): The name of the Hugging Face repository to push the details to. If not provided, the results will be pushed to `lm-eval-results`.
+            hub_repo_name (str): The name of the Hugging Face repository to push the results to. If not provided, the results will be pushed to `lm-evaluate-results`.
+            details_repo_name (str): The name of the Hugging Face repository to push the details to. If not provided, the results will be pushed to `lm-evaluate-results`.
             result_repo_name (str): The name of the Hugging Face repository to push the results to. If not provided, the results will not be pushed and will be found in the details_hub_repo.
             push_results_to_hub (bool): Whether to push the results to the Hugging Face hub.
             push_samples_to_hub (bool): Whether to push the samples to the Hugging Face hub.
@@ -170,7 +170,7 @@ class EvaluationTracker:
 
         if hub_repo_name == "":
             details_repo_name = (
-                details_repo_name if details_repo_name != "" else "lm-eval-results"
+                details_repo_name if details_repo_name != "" else "lm-evaluate-results"
             )
             results_repo_name = (
                 results_repo_name if results_repo_name != "" else details_repo_name
@@ -503,7 +503,7 @@ class EvaluationTracker:
             "## Latest results\n\n"
             f'These are the [latest results from run {latest_datetime}]({last_results_file_path.replace("/resolve/", "/blob/")}) '
             "(note that there might be results for other tasks in the repos if successive evals didn't cover the same tasks. "
-            'You find each in the results and the "latest" split for each eval):\n\n'
+            'You find each in the results and the "latest" split for each evaluate):\n\n'
             f"```python\n{results_string}\n```"
         )
         card_data = DatasetCardData(

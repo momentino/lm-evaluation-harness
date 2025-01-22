@@ -394,14 +394,14 @@ lm_eval --model hf \
     --tasks hellaswag \
     --log_samples \
     --output_path results \
-    --hf_hub_log_args hub_results_org=EleutherAI,hub_repo_name=lm-eval-results,push_results_to_hub=True,push_samples_to_hub=True,public_repo=False \
+    --hf_hub_log_args hub_results_org=EleutherAI,hub_repo_name=lm-evaluate-results,push_results_to_hub=True,push_samples_to_hub=True,public_repo=False \
 ```
 
 This allows you to easily download the results and samples from the Hub, using:
 ```python
 from datasets import load_dataset
 
-load_dataset("EleutherAI/lm-eval-results-private", "hellaswag", "latest")
+load_dataset("EleutherAI/lm-evaluate-results-private", "hellaswag", "latest")
 ```
 
 For a full list of supported arguments, check out the [interface](https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/interface.md) guide in our documentation!
@@ -480,7 +480,7 @@ lm_eval \
     --batch_size 8 \
     --output_path output/phi-2 \
     --limit 10 \
-    --wandb_args project=lm-eval-harness-integration \
+    --wandb_args project=lm-evaluate-harness-integration \
     --log_samples
 ```
 

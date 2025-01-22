@@ -8,7 +8,7 @@ try:
 except ModuleNotFoundError:
     raise Exception(
         "`pycountry` is required for generating translation task prompt templates. \
-please install pycountry via pip install lm-eval[multilingual] or pip install -e .[multilingual]",
+please install pycountry via pip install lm-evaluate[multilingual] or pip install -e .[multilingual]",
     )
 
 

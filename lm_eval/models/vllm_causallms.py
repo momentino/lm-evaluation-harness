@@ -72,7 +72,7 @@ class VLLM(TemplateLM):
         if not find_spec("vllm"):
             raise ModuleNotFoundError(
                 "attempted to use 'vllm' LM type, but package `vllm` is not installed. "
-                "Please install vllm via `pip install lm-eval[vllm]` or `pip install -e .[vllm]`"
+                "Please install vllm via `pip install lm-evaluate[vllm]` or `pip install -e .[vllm]`"
             )
 
         assert "cuda" in device or device is None, "vLLM only supports CUDA"
