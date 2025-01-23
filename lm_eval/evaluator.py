@@ -445,7 +445,6 @@ def evaluate(
     limits = []
     for task_output in eval_tasks:
         task: Task = task_output.task
-
         limit = get_sample_size(task, limit_arg)
         limits.append(limit)
         task.build_all_requests(

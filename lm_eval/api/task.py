@@ -451,7 +451,6 @@ class Task(abc.ABC):
                 metadata=(self.config["task"], doc_id, self.config.repeats),
                 apply_chat_template=apply_chat_template,
             )
-
             if not isinstance(inst, list):
                 inst = [inst]
 

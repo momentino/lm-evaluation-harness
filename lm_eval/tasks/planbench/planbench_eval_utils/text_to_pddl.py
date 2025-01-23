@@ -256,6 +256,7 @@ def text_to_plan_blocksworld(text, action_set, plan_file, data, ground_flag=Fals
         plan += f"{action}\n"
         readable_plan += f"{readable_action}\n"
     # print(f"[+]: Saving plan in {plan_file}")
+
     file = open(plan_file, "wt")
     file.write(plan)
     file.close()

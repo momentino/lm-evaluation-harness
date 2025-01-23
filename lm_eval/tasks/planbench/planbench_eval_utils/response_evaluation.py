@@ -81,28 +81,7 @@ class ResponseEvaluator:
             # Plan extraction failed
             correct = int(False)
             print(f"Warning: Plan extraction failed for plan {id}")
-
-        """try:
-            llm_plan, _ = text_to_plan(llm_response, problem.actions, self.llm_plan_file, self.data)
-            if 'new_instance' not in doc.keys():
-                correct = int(validate_plan(self.domain_pddl, cur_instance, self.llm_plan_file))
-            else:
-                self.write_new_instance(doc['new_instance'])
-                correct = int(validate_plan('pr-new-domain.pddl', 'pr-new-problem.pddl', self.llm_plan_file))
-                # remove new_instance key from instance_dict
-                del doc['new_instance']
-            if 'optimality' in task_name:
-                if correct:
-                    plan_list = [len(pl) > 0 for pl in llm_plan.split('\n')]
-                    actual_cost_llm = sum(plan_list)
-                    if actual_cost_llm == plan_executor.cost:
-                        correct = True
-                    else:
-                        correct = False
-        except:
-            # Plan extraction failed
-            correct = int(False)
-            print(f"Warning: Plan extraction failed for plan {id}")"""
+        os.remove(self.llm_plan_file)
         return correct
 
     def evaluate_state(self, doc, llm_response):
