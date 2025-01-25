@@ -77,11 +77,11 @@ class ResponseEvaluator:
                         correct = True
                     else:
                         correct = False
+            os.remove(self.llm_plan_file)
         except:
             # Plan extraction failed
             correct = int(False)
             print(f"Warning: Plan extraction failed for plan {id}")
-        os.remove(self.llm_plan_file)
         return correct
 
     def evaluate_state(self, doc, llm_response):
