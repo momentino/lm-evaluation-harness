@@ -36,6 +36,12 @@ task:
     aggregate_metric_list:
       - metric: acc
         weight_by_size: True
+  - group: indirect_speech
+    task:
+      - lm_pragmatics_indirect_speech
+    aggregate_metric_list:
+      - metric: acc
+        weight_by_size: True
 aggregate_metric_list:
   - metric: acc
     weight_by_size: True
