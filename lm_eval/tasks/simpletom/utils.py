@@ -10,6 +10,11 @@ def doc_to_choice(doc: dict) -> list[str]:
 
     return choices_str
 
+def doc_to_target(doc: dict) -> int:
+    choice_labels = doc["choices"]["label"]
+    answer = doc["answerKey"]
+
+    return choice_labels.index(answer)
 
 def doc_to_text(doc: dict) -> str:
 

@@ -8,7 +8,7 @@ validation_split: test
 num_fewshot: 0
 doc_to_text: !function utils.doc_to_text
 doc_to_choice: !function utils.doc_to_choice
-doc_to_target: "{{answerKey}}"
+doc_to_target: !function utils.doc_to_target
 metric_list:
   - metric: acc
     aggregation: mean
