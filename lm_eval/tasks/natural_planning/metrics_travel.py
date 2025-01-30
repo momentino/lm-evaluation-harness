@@ -85,6 +85,10 @@ def parse_response(response: str):
 
 
 def travel_planning_accuracy(doc: dict, response: list[str]) -> dict[str, float]:
+    import pdb
+
+    pdb.set_trace()
+
     parsed_plan = parse_response(response[0])
     cities = doc["cities"]
     durations = doc["durations"]
