@@ -1,5 +1,5 @@
 tag: 
-  - natural_planning
+  - natural_planning_5shot
 task: meeting-planning-5shot
 dataset_path: clembench-playpen/natural-plan-meeting
 output_type: generate_until
