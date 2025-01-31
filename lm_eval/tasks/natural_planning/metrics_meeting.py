@@ -3,15 +3,6 @@ import datetime
 import json
 from typing import Any
 
-from absl import flags
-
-
-_DATA_PATH = flags.DEFINE_string(
-    "data_path",
-    "data/meeting_planning.json",
-    "path to the data file containing model responses in json format.",
-)
-
 
 MAX_CONSTRAINTS = 10
 NUM_SAMPLES_PER_CONSTRAINTS = 100
@@ -221,7 +212,6 @@ def parse_text_plan(plan: str):
 
 def meeting_planning_accuracy(doc: dict, response: list[str]) -> dict[str, float]:
     doc["constraints"] = json.loads(doc["constraints"])
-    # num_people = doc["num_people"]
     start_location, initial_time = doc["constraints"][0]
     constraints = process_constraints(doc["constraints"][1:])
     dist_matrix = json.loads(doc["dist_matrix"])
@@ -240,4 +230,3 @@ def meeting_planning_accuracy(doc: dict, response: list[str]) -> dict[str, float
     curr_acc = int(score == golden_score)
 
     return {"acc": curr_acc}
-    # , f"acc_per_num_people_{num_people - 1}": curr_acc}
