@@ -92,7 +92,7 @@ def validator_from_text(
             else:
                 raise ValueError("Unknown plan format")
 
-        except (ValueError, KeyError) as e:
+        except Exception as e:
             print("Had error: {e} with step: {step}".format(e=e, step=step))
             break
 
