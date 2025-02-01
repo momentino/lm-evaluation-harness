@@ -1,8 +1,6 @@
 tag: 
   - natural_planning_5shot
 task: travel-planning-5shot
-  - natural_planning
-task: travel-planning
 dataset_path: clembench-playpen/natural-plan-travel
 output_type: generate_until
 validation_split: default
