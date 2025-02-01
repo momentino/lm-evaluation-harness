@@ -13,7 +13,7 @@ try:
 except ModuleNotFoundError:
     raise ModuleNotFoundError(
         "`sympy` is required for generating translation task prompt templates. \
-please install sympy via pip install lm-eval[math] or pip install -e .[math]",
+please install sympy via pip install lm-evaluate[math] or pip install -e .[math]",
     )
 
 

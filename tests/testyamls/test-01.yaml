@@ -3,7 +3,7 @@ group_alias: test 1
 task:
   - piqa # string task
   - ai2_arc # string tag
-  - task: super-glue-lm-eval-v1 # Should this be spread out?
+  - task: super-glue-lm-evaluate-v1 # Should this be spread out?
     num_fewshot: 3
   - task: swag # dict registered task
     num_fewshot: 2

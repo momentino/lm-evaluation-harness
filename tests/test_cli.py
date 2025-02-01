@@ -19,7 +19,7 @@ def test_cli_parse_error():
             "-t",
             default=None,
             metavar="task1,task2",
-            help="To get full list of tasks, use the command lm-eval --tasks list",
+            help="To get full list of tasks, use the command lm-evaluate --tasks list",
         )
         lm_eval.__main__.check_argument_types(parser)
 
@@ -38,6 +38,6 @@ def test_cli_parse_no_error():
         type=str,
         default=None,
         metavar="task1,task2",
-        help="To get full list of tasks, use the command lm-eval --tasks list",
+        help="To get full list of tasks, use the command lm-evaluate --tasks list",
     )
     lm_eval.__main__.check_argument_types(parser)

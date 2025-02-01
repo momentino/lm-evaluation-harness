@@ -1,12 +1,12 @@
 import logging
-from typing import Callable, Dict
+from typing import Callable, Dict, Union
 
 import evaluate as hf_evaluate
 
 from lm_eval.api.model import LM
 
 
-eval_logger = logging.getLogger("lm-eval")
+eval_logger = logging.getLogger("lm-evaluate")
 
 MODEL_REGISTRY = {}
 
@@ -126,7 +126,7 @@ def get_metric(name: str, hf_evaluate_metric=False) -> Callable:
             return METRIC_REGISTRY[name]
         else:
             eval_logger.warning(
-                f"Could not find registered metric '{name}' in lm-eval, searching in HF Evaluate library..."
+                f"Could not find registered metric '{name}' in lm-evaluate, searching in HF Evaluate library..."
             )
 
     try:
@@ -185,8 +185,12 @@ def register_filter(name):
     return decorate
 
 
-def get_filter(filter_name: str) -> type:
+def get_filter(filter_name: Union[str, Callable]) -> Callable:
     try:
         return FILTER_REGISTRY[filter_name]
-    except KeyError:
-        eval_logger.warning(f"filter `{filter_name}` is not registered!")
+    except KeyError as e:
+        if callable(filter_name):
+            return filter_name
+        else:
+            eval_logger.warning(f"filter `{filter_name}` is not registered!")
+            raise e

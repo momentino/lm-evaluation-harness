@@ -1,6 +1,6 @@
 from typing import Dict
 from pathlib import Path
-from lm_eval.tasks.planbench.planbench_eval_utils.response_evaluation import ResponseEvaluator
+from frameworks.lm_evaluation_harness.lm_eval.tasks.planbench.planbench_eval_utils.response_evaluation import ResponseEvaluator
 
 def process_results_plan_generation(doc, response) -> Dict:
     current_folder = Path(__file__).parent

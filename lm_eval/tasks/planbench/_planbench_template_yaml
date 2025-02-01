@@ -3,6 +3,9 @@ test_split: test
 output_type: generate_until
 doc_to_text: "{{query}}"
 doc_to_target: ground_truth_plan
+generation_kwargs:
+  until:
+    - "[PLAN END]"
 metric_list:
   - metric: acc
     aggregation: mean

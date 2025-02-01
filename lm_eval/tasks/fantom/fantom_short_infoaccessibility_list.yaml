@@ -6,6 +6,8 @@ test_split: inaccessible
 doc_to_text: "{{input_text}}"
 doc_to_target: "{{correct_answer}}"
 process_results: !function utils.process_results_list
+generation_kwargs:
+  max_new_tokens: 365
 metric_list:
   - metric: acc
     aggregation: mean

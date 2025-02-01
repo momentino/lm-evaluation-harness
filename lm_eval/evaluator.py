@@ -294,7 +294,9 @@ def simple_evaluate(
             model_source=model,
             model_args=model_args,
             system_instruction=system_instruction,
-            chat_template=lm.chat_template(apply_chat_template),
+            chat_template=lm.chat_template(apply_chat_template)
+            if apply_chat_template
+            else None,
             fewshot_as_multiturn=fewshot_as_multiturn,
         )
 
@@ -400,6 +402,11 @@ def evaluate(
 
     eval_logger.setLevel(getattr(logging, f"{verbosity}"))
 
+    if apply_chat_template:
+        eval_logger.warning(
+            "Chat template formatting change affects loglikelihood and multiple-choice tasks. See docs/chat-template-readme.md for details."
+        )
+
     # tracks all Instances/requests a model must generate output on.
     requests = defaultdict(list)
     # stores the amount to pad out reqs per req. type so that
@@ -438,7 +445,6 @@ def evaluate(
     limits = []
     for task_output in eval_tasks:
         task: Task = task_output.task
-
         limit = get_sample_size(task, limit_arg)
         limits.append(limit)
         task.build_all_requests(
@@ -545,6 +551,8 @@ def evaluate(
                         "filtered_resps": [
                             req.filtered_resps[filter_key] for req in requests
                         ],
+                        "filter": filter_key,
+                        "metrics": list(metrics.keys()),
                         "doc_hash": hash_string(
                             json.dumps(
                                 requests[0].doc,

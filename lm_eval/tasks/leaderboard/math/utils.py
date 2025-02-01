@@ -13,8 +13,11 @@ try:
 except ModuleNotFoundError:
     raise ModuleNotFoundError(
         "`sympy` is required for generating translation task prompt templates. \
-please install sympy via pip install lm-eval[math] or pip install -e .[math]",
+please install sympy via pip install lm-evaluate[math] or pip install -e .[math]",
     )
+
+
+INVALID_ANSWER = "[invalidanswer]"
 
 
 # taken from
@@ -70,7 +73,10 @@ def process_results(doc: dict, results: List[str]) -> Dict[str, int]:
     unnormalized_answer = get_unnormalized_answer(candidates)
     answer = normalize_final_answer(unnormalized_answer)
 
-    if is_equiv(answer, doc["answer"]):
+    if answer == INVALID_ANSWER:
+        return {"exact_match": 0}
+
+    if answer.strip() == doc["answer"].strip() or is_equiv(answer, doc["answer"]):
         retval = 1
     else:
         retval = 0
@@ -112,17 +118,19 @@ def last_boxed_only_string(string: str) -> Optional[str]:
 
 
 def remove_boxed(s: str) -> str:
-    if "\\boxed " in s:
-        left = "\\boxed "
+    try:
+        if "\\boxed " in s:
+            left = "\\boxed "
+            assert s[: len(left)] == left
+            return s[len(left) :]
+
+        left = "\\boxed{"
+
         assert s[: len(left)] == left
-        return s[len(left) :]
-
-    left = "\\boxed{"
-
-    assert s[: len(left)] == left
-    assert s[-1] == "}"
-
-    return s[len(left) : -1]
+        assert s[-1] == "}"
+        return s[len(left) : -1]
+    except AssertionError:
+        return INVALID_ANSWER
 
 
 class timeout:
@@ -146,7 +154,7 @@ def is_equiv(x1: str, x2: str) -> bool:
     x1 and x2 are normalized latex string
     """
     try:
-        with timeout(seconds=5):
+        with timeout(seconds=1):
             try:
                 parsed_x1 = parse_latex(x1)
                 parsed_x2 = parse_latex(x2)
@@ -185,7 +193,6 @@ def is_equiv(x1: str, x2: str) -> bool:
 
 
 def get_unnormalized_answer(text: str) -> str:
-    INVALID_ANSWER = "[invalidanswer]"
     end_seq = "I hope it is correct."
     text += end_seq
     match = re.search(

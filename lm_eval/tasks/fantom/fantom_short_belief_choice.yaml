@@ -7,6 +7,8 @@ doc_to_text: "{{input_text}}"
 doc_to_choice: !function utils.doc_to_choices
 doc_to_target: "{{correct_answer}}"
 process_results: !function utils.process_results_belief_choice
+generation_kwargs:
+  max_new_tokens: 365
 metric_list:
   - metric: acc
 

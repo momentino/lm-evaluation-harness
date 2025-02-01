@@ -4,7 +4,6 @@ dataset_name: null
 output_type: multiple_choice
 training_split: train
 validation_split: validation
-num_fewshot: 0
 doc_to_text: "Q: {{context}} {{question}}\nA:"
 target_delimiter: " "
 doc_to_choice: "{{[answerA, answerB, answerC]}}"

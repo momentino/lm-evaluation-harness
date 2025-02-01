@@ -73,7 +73,7 @@ def setup_parser() -> argparse.ArgumentParser:
         default=None,
         type=str,
         metavar="task1,task2",
-        help="Comma-separated list of task names or task groupings to evaluate on.\nTo get full list of tasks, use one of the commands `lm-eval --tasks {{list_groups,list_subtasks,list_tags,list}}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above",
+        help="Comma-separated list of task names or task groupings to evaluate on.\nTo get full list of tasks, use one of the commands `lm-evaluate --tasks {{list_groups,list_subtasks,list_tags,list}}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above",
     )
     parser.add_argument(
         "--model_args",
@@ -221,13 +221,13 @@ def setup_parser() -> argparse.ArgumentParser:
         "--wandb_args",
         type=str,
         default="",
-        help="Comma separated string arguments passed to wandb.init, e.g. `project=lm-eval,job_type=eval",
+        help="Comma separated string arguments passed to wandb.init, e.g. `project=lm-evaluate,job_type=evaluate",
     )
     parser.add_argument(
         "--hf_hub_log_args",
         type=str,
         default="",
-        help="Comma separated string arguments passed to Hugging Face Hub's log function, e.g. `hub_results_org=EleutherAI,hub_repo_name=lm-eval-results`",
+        help="Comma separated string arguments passed to Hugging Face Hub's log function, e.g. `hub_results_org=EleutherAI,hub_repo_name=lm-evaluate-results`",
     )
     parser.add_argument(
         "--predict_only",
@@ -353,10 +353,10 @@ def cli_evaluate(args: Union[argparse.Namespace, None] = None) -> None:
                 missing = ", ".join(task_missing)
                 eval_logger.error(
                     f"Tasks were not found: {missing}\n"
-                    f"{utils.SPACING}Try `lm-eval --tasks list` for list of available tasks",
+                    f"{utils.SPACING}Try `lm-evaluate --tasks list` for list of available tasks",
                 )
                 raise ValueError(
-                    f"Tasks not found: {missing}. Try `lm-eval --tasks {{list_groups,list_subtasks,list_tags,list}}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above, or pass '--verbosity DEBUG' to troubleshoot task registration issues."
+                    f"Tasks not found: {missing}. Try `lm-evaluate --tasks {{list_groups,list_subtasks,list_tags,list}}` to list out all available names for task groupings; only (sub)tasks; tags; or all of the above, or pass '--verbosity DEBUG' to troubleshoot task registration issues."
                 )
 
     # Respect user's value passed in via CLI, otherwise default to True and add to comma-separated model args
