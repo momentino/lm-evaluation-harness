@@ -1,28 +1,20 @@
-tag: 
-<<<<<<< HEAD
+tag:
   - natural_planning_0shot
 task: travel-planning-0shot
-=======
   - natural_planning
 task: travel-planning
->>>>>>> 57ad758... feat: travel planning dataset from natural planning
 dataset_path: clembench-playpen/natural-plan-travel
 output_type: generate_until
 validation_split: default
 num_fewshot: 0
 doc_to_text: prompt_0shot
 doc_to_target: golden_plan
-<<<<<<< HEAD
 process_results: !function metrics_travel.travel_planning_accuracy
-=======
-process_results: !function metrics.travel_planning_accuracy
->>>>>>> 57ad758... feat: travel planning dataset from natural planning
 metric_list:
   - metric: acc
     aggregation: mean
     higher_is_better: true
 generation_kwargs:
-<<<<<<< HEAD
   do_sample: false
   min_new_tokens: 90 # minimum #tokens in gold plan = 87 
   max_new_tokens: 350 # maximum #tokens in gold plan = 290
@@ -32,8 +24,6 @@ generation_kwargs:
     - '<|im_end|>'
     - '<|endoftext|>'
 
-=======
   temperature: 0
->>>>>>> 57ad758... feat: travel planning dataset from natural planning
 metadata:
   version: 1.0
