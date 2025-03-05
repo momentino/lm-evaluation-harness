@@ -1,0 +1,26 @@
+tag: 
+  - natural_planning_5shot
+task: meeting-planning-5shot
+dataset_path: clembench-playpen/natural-plan-meeting
+output_type: generate_until
+validation_split: default
+num_fewshot: 0
+doc_to_text: prompt_5shot
+doc_to_target: golden_plan
+process_results: !function metrics_meeting.meeting_planning_accuracy
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+generation_kwargs:
+  do_sample: false
+  min_new_tokens: 90 # minimum #tokens in gold plan = 87 
+  max_new_tokens: 350 # maximum #tokens in gold plan = 290
+  early_stopping: false
+  until: 
+    - '<|eot_id|>'
+    - '<|im_end|>'
+    - '<|endoftext|>'
+
+metadata:
+  version: 1.0
