@@ -1,13 +1,13 @@
 tag: 
-  - natural_planning_5shot
-task: calendar-planning-5shot
-dataset_path: clembench-playpen/natural-plan-calendar
+  - natural_plan_5shot
+task: trip-planning-5shot
+dataset_path: clembench-playpen/natural-plan-trip
 output_type: generate_until
 validation_split: default
 num_fewshot: 0
 doc_to_text: prompt_5shot
 doc_to_target: golden_plan
-process_results: !function metrics_calendar.calendar_planning_accuracy
+process_results: !function metrics_trip.trip_planning_accuracy
 metric_list:
   - metric: acc
     aggregation: mean
@@ -21,6 +21,6 @@ generation_kwargs:
     - '<|eot_id|>'
     - '<|im_end|>'
     - '<|endoftext|>'
-
+  temperature: 0
 metadata:
   version: 1.0

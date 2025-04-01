@@ -1,13 +1,13 @@
 tag: 
-  - natural_planning_0shot
-task: calendar-planning-0shot
-dataset_path: clembench-playpen/natural-plan-calendar
+  - natural_plan_5shot
+task: meeting-planning-5shot
+dataset_path: clembench-playpen/natural-plan-meeting
 output_type: generate_until
 validation_split: default
 num_fewshot: 0
-doc_to_text: prompt_0shot
+doc_to_text: prompt_5shot
 doc_to_target: golden_plan
-process_results: !function metrics_calendar.calendar_planning_accuracy
+process_results: !function metrics_meeting.meeting_planning_accuracy
 metric_list:
   - metric: acc
     aggregation: mean

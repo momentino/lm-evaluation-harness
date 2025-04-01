@@ -1,13 +1,13 @@
-tag: 
-  - natural_planning_5shot
-task: travel-planning-5shot
-dataset_path: clembench-playpen/natural-plan-travel
+tag:
+  - natural_plan_0shot
+task: trip-planning-0shot
+dataset_path: clembench-playpen/natural-plan-trip
 output_type: generate_until
 validation_split: default
 num_fewshot: 0
-doc_to_text: prompt_5shot
+doc_to_text: prompt_0shot
 doc_to_target: golden_plan
-process_results: !function metrics_travel.travel_planning_accuracy
+process_results: !function metrics_trip.trip_planning_accuracy
 metric_list:
   - metric: acc
     aggregation: mean
