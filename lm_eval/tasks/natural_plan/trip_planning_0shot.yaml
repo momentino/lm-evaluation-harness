@@ -14,10 +14,9 @@ metric_list:
     higher_is_better: true
 generation_kwargs:
   do_sample: false
-  min_new_tokens: 90 # minimum #tokens in gold plan = 87 
-  max_new_tokens: 350 # maximum #tokens in gold plan = 290
+  max_gen_toks: 350 # maximum #tokens in gold plan = 290
   early_stopping: false
-  until: 
+  until:
     - '<|eot_id|>'
     - '<|im_end|>'
     - '<|endoftext|>'
