@@ -2,18 +2,6 @@ tag:
   - natural_plan_5shot
 task: calendar_scheduling_5shot
 dataset_path: clembench-playpen/natural-plan-calendar
-output_type: generate_until
-validation_split: default
-num_fewshot: 0
 doc_to_text: prompt_5shot
-doc_to_target: golden_plan
+include: _natural_plan_template_yaml
 process_results: !function metrics_calendar.calendar_planning_accuracy
-metric_list:
-  - metric: acc
-    aggregation: mean
-    higher_is_better: true
-generation_kwargs:
-
-  do_sample: false
-metadata:
-  version: 1.0

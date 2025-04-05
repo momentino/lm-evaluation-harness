@@ -2,17 +2,6 @@ tag:
   - natural_plan_0shot
 task: trip_planning_0shot
 dataset_path: clembench-playpen/natural-plan-trip
-output_type: generate_until
-validation_split: default
-num_fewshot: 0
 doc_to_text: prompt_0shot
-doc_to_target: golden_plan
+include: _natural_plan_template_yaml
 process_results: !function metrics_trip.trip_planning_accuracy
-metric_list:
-  - metric: acc
-    aggregation: mean
-    higher_is_better: true
-generation_kwargs:
-  do_sample: false
-metadata:
-  version: 1.0
