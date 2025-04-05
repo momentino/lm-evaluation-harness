@@ -1,0 +1,8 @@
+group: natural_plan_5shot
+task:
+  - calendar_scheduling_5shot
+  - trip_planning_5shot
+  - meeting_planning_5shot
+aggregate_metric_list:
+  - metric: acc
+    weight_by_size: True

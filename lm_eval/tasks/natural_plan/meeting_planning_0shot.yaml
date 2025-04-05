@@ -1,6 +1,6 @@
 tag:
   - natural_plan_0shot
-task: meeting-planning-0shot
+task: meeting_planning_0shot
 dataset_path: clembench-playpen/natural-plan-meeting
 output_type: generate_until
 validation_split: default

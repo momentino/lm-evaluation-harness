@@ -1,6 +1,6 @@
 tag:
   - natural_plan_0shot
-task: calendar-scheduling-0shot
+task: calendar_scheduling_0shot
 dataset_path: clembench-playpen/natural-plan-calendar
 output_type: generate_until
 validation_split: default
